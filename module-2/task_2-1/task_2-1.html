@@ -8,15 +8,51 @@
 <script>
   /* write your code below this line  🙂 */
 let x = 7;
+let y = 53;
+let z = x + y;
+document.write("The insane value of Z is: " + z);
+</script>
+</body>
+</html>
+<!--
+Part 1: In HTML, JavaScript code is inserted between <script> and </script> tags.
+
+Part 2: Let, const and var are used to declare variables in JavaScript.
+
+Part 3: let x = 7;
 let y = 6;
 let z = x + y;
-valuePI = 3.14;
-myfirstconst = 40;
-mysecondconst = 12;
+let valuePI = 3.14;
+const mittmorsnavn = Wenche;
+let alderwenche = 50;
 let string = "Ronaldo is the GOAT";
 let integer = 983476938476394867;
 let float = 31415926.53589793238;
 const cr7 = x + y + z;
-</script>
-</body>
-</html>
+
+Part 4: If you use any virable, the error goes away. If you dont the error the error stays.
+
+Part 5: What happened was that the value of Z changed from 13 to 60.
+
+Discussion questions:
+1. Can we create variables and constants without assigning values to them? If not, why, and which
+ones (variables, constants, or both)?
+No, we cant create variables and constants without assigning values to them. Because they need a value to be defined.
+
+2. Can we create variables and constants on the same line, or must we separate them onto different
+lines? If we can, how do we differentiate them?
+Yes, we can create variables and constants on the same line. We differentiate them by using let for variables and const for constants.
+for example: let x = 7, y = 53; const z = x + y;
+
+3. Can we assign a new value to a constant later in the code? Try to explain why we can or cannot.
+No, we cannot assign a new value to a constant later in the code. Because constants are meant to not be changed, meaning they cannot be changed.
+
+4. What happens if we create a variable without using the let or const commands? Now, add "use
+strict" to the very top of your script. Describe what you observe in the browser's "Inspect"
+window. You can learn more about "use strict" on W3Schools.
+If we create a variable without using the let or const commands. In the browser's "Inspect" window, we would see an error message showing that the variable is not defined.
+
+5. What are implicit and explicit variable declarations?
+Implicit variable declarations are when we create a variable without using the let or const commands. Explicit variable declarations are when we create a variable using the let or const commands.
+
+-->
