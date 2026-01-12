@@ -97,8 +97,17 @@
   </div>
 </fieldset>
 <ol>
-  <li>[Write the question here, and copy this for more questions]</li>
-  <p>[Write your answer here, and copy this for more answers]</p>
+  <li>In this assignment, we use the DOM. Explain how this library can help us develop interactive web
+pages.</li>
+  <p>The DOM (Document Object Model) is a programming interface that allows us to manipulate the structure, style, and content of web pages. It represents the page so that programs can change the document structure, style, and content. This is essential for creating interactive web applications, as it enables developers to respond to user actions, update the UI dynamically, and manage the document's content and structure in a structured way.</p>
+  <li>What is an event? Simply explain what happens when we add an event listener to an object.</li>
+  <p>An event is an action or occurrence that happens in the browser, such as a user clicking a button or pressing a key. When we add an event listener to an object, we are essentially telling the browser to "watch" for a specific event on that object. When the event occurs, the browser will execute the specified callback function, allowing us to respond to the event and update the UI or perform other actions as needed.</p>
+  <li>Sometimes we need to use an event object to get data from the event. Explain how this event
+object is structured, don't explain all functions or attributes. Try to explain, for example, how to
+retrieve data from a keyboard or mouse.</li>
+  <p>The event object is a JavaScript object that is automatically passed to the event handler when an event occurs. It contains information about the event, such as the type of event, the target element, and any relevant data. For keyboard events, we can access properties like `event.key` to get the key that was pressed, and for mouse events, we can use properties like `event.clientX` and `event.clientY` to get the mouse cursor's position.</p>
+  <li>Explain the main difference between DOM id and DOM name. Can we have identical IDs?</li>
+  <p>The main difference between DOM id and DOM name is that the id is a unique identifier for an element within the document, while the name is used to reference elements in a group, such as form elements. IDs must be unique within a document, meaning no two elements can have the same id. However, multiple elements can share the same name, which is often used for grouping radio buttons or checkboxes. Therefore, we cannot have identical IDs within the same document.</p>
 </ol>
 <script type="module" src="./task_4-3.mjs" defer></script>
 </body>
