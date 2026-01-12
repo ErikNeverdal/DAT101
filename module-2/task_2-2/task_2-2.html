@@ -12,31 +12,35 @@
     <ol>
       <li>Where should you use constants, and where should you use variables? Can they all be constants?</li>
       <p>
-				[Replace this with you answer]
+				Constants should be used for values that do not change throughout the program, while variables should be used for values that may change. Not all values can be constants, as some need to be updated or modified.
 			</p>
       <li>How do parentheses affect the arithmetic outcome of an expression?</li>
       <p>
-				[Replace this with you answer]
+				Parentheses are used to group expressions and control the order of operations. They ensure that the operations within the parentheses are performed first, which can change the outcome of the expression.
 			</p>
       <li>How do we limit floating-point numbers to a given number of decimals?</li>
       <p>
-				[Replace this with you answer]
+				We can limit floating-point numbers to a specific number of decimals using methods like toFixed() in JavaScript, which formats a number using fixed-point notation.
 			</p>
       <li>How can we compare two floating-point values to see if they are equal (is 12.199999 the same as 12.2)?</li>
       <p>
-				[Replace this with you answer]
+				To compare two floating-point values for equality, we can use a small tolerance value (epsilon) to check if the difference between the two values is within an acceptable range. For example:
+				```javascript
+				const epsilon = 0.00001;
+				const isEqual = Math.abs(12.199999 - 12.2) < epsilon;
+				```
 			</p>
       <li>What do comparison operators return, and how can we check if they are FALSE or TRUE?</li>
       <p>
-				[Replace this with you answer]
+				Comparison operators return boolean values: TRUE or FALSE. We can check their values directly in conditional statements or by logging them to the console.
 			</p>
       <li>How does the Math.random() function work, and what can it be used for?</li>
       <p>
-				[Replace this with you answer]
+				Math.random() generates a random floating-point number between 0 (inclusive) and 1 (exclusive). It can be used for various purposes, such as creating random values, simulating randomness in games, or selecting random elements from an array.
 			</p>
       <li>What is modulus (%), and when do we need this operator in mathematical operations?</li>
       <p>
-				[Replace this with you answer]
+				The modulus operator (%) returns the remainder of a division operation. It is useful for determining if a number is even or odd, cycling through a range of values, or implementing wrap-around behavior in calculations.
 			</p>
     </ol>
 		<script type="module" src="./task_2-2.mjs" defer></script>
