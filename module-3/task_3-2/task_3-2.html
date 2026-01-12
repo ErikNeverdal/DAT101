@@ -10,8 +10,20 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>In part 1, is it possible to solve the problem using a single "for" loop?</li>
+      <p>Yes, it is possible to solve the problem using a single "for" loop by carefully managing the loop variables and conditions.</p>
+      <li>In part 2, can we create what is known as an "infinite" loop within the condition of the "while" loop?
+Describe what would or would not be necessary to achieve this. Provide a thorough explanation of
+your answer.</li>
+<p>To create an "infinite" loop within the condition of a "while" loop, we would need to ensure that the condition always evaluates to true. This could be achieved by using a condition that never changes or by manipulating the loop variables in such a way that the exit condition is never met. However, this is generally not recommended as it can lead to unresponsive programs and excessive resource consumption.</p>
+<li>Discuss briefly how quickly or slowly a computer might be able to compute this, considering the
+number of guesses and the time it takes. How does the program behave while it is guessing? Can
+the program perform other tasks concurrently?</li>
+<p>The speed at which a computer can compute this depends on various factors, including the complexity of the problem, the efficiency of the algorithm used, and the hardware capabilities of the machine. While the program is guessing, it may become unresponsive if the guessing process is resource-intensive. However, modern programming techniques, such as asynchronous programming and multithreading, can allow the program to perform other tasks concurrently, improving overall responsiveness.</p>
+<li>Explain the relationship between rows and columns in nested "for" loops. Can we, for instance,
+change the order, considering rows to be innermost or columns to be innermost, or does this not
+matter?</li>
+<p>In nested "for" loops, the order of rows and columns can be changed, but it may affect the logic and outcome of the loop. If we consider rows to be innermost, we typically iterate over each row completely before moving to the next column. Conversely, if we consider columns to be innermost, we would iterate over each column completely before moving to the next row. The choice of order depends on the specific problem being solved and the desired outcome.</p>
     </ol>
     <script type="module" src="./task_3-2.mjs" defer></script>
   </body>
