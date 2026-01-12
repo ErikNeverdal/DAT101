@@ -10,8 +10,20 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>What is the difference between invoking and creating a function?</li>
+      <p>Creating a function means defining it, while invoking a function means executing it.</p>
+      <li>Explain the syntax regarding semicolons and code blocks.</li>
+      <p>In JavaScript, semicolons are used to terminate statements. Code blocks are defined using curly braces { } and are used to group statements.</p>
+      <li>What happens when we try to store values from a function when it doesn't return any?</li>
+      <p>When a function doesn't return a value, it implicitly returns undefined. If we try to store the result of such a function, the variable will hold the value undefined.</p>
+      <li>How do we separate parameters from each other when creating a function?</li>
+      <p>We separate parameters from each other using commas. For example, in the function definition <code>function myFunction(param1, param2)</code>, the parameters <code>param1</code> and <code>param2</code> are separated by a comma.</p>
+      <li>Explain how parameter names are related during the invocation and creation of a function.</li>
+      <p>During the creation of a function, we define parameter names that act as placeholders for the values that will be passed in when the function is invoked. When invoking the function, we provide arguments that are matched to the parameter names in the order they are defined.</p>
+      <li>Explain why a parameter is undefined when a function call is missing a parameter.</li>
+      <p>If a function is called without providing a value for a parameter, that parameter is assigned the value undefined. This is because JavaScript does not throw an error for missing arguments; instead, it initializes them to undefined.</p>
+      <li>Explain what happens when we use recursive functions.</li>
+      <p>When we use recursive functions, the function calls itself with modified arguments in order to solve a problem. Each recursive call creates a new execution context, and the function continues to call itself until it reaches a base case that stops the recursion.</p>
     </ol>
     <script type="module" src="./task_3-3.mjs" defer></script>
   </body>
