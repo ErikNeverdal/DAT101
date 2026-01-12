@@ -7,9 +7,12 @@ export class TBackground{
 
     constructor(aSpcvs, aSPI){
         this.#spriteBackground = new TSprite(aSpcvs, aSPI.background, 0, 0,);
+        const groundPosY = aSPI.background.height - aSPI.ground.height;
+        this.#spriteGround = new TSprite(aSpcvs, aSPI.ground, 0, groundPosY);
     }
 
     draw(){
         this.#spriteBackground.draw();
+        this.#spriteGround.draw();
     }
 }

@@ -2,6 +2,7 @@
 // Import necessary modules
 import { TSpriteCanvas } from "libSprite";
 import { TBackground } from "./background.js"
+import { THero } from "./hero.js"
 
 //--------------- Objects and Variables ----------------------------------//
 const chkMuteSound = document.getElementById("chkMuteSound");
@@ -29,11 +30,13 @@ const SpriteInfoList = {
 
 const EGameStatus = { idle: 0 };
 const background = new TBackground(spcvs, SpriteInfoList);
+const hero1 = new THero(spcvs, SpriteInfoList);
 
 
 //--------------- Functions ----------------------------------------------//
 function drawGame(){
   background.draw();
+  hero1.draw();
 }
 
 function loadGame() {
