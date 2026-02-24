@@ -123,8 +123,8 @@ export class TRectangleShape extends TShape{
   }
 
   #calcSize(){
-    this.#width = mousePos.x - this.posStart.x;
-    this.#height = mousePos.y - this.posStart.y;
+    this.#width = Math.abs(mousePos.x - this.posStart.x);
+    this.#height = Math.abs(mousePos.y - this.posStart.y);
   }
 
 
@@ -145,12 +145,12 @@ export class TPenShape extends TShape{
   draw(){
     ctxPaint.beginPath();
     ctxPaint.moveTo(this.posStart.x, this.posStart.y);
-    
+
     for(let i = 0; i < this.#points.length; i++){
       const pos = this.#points[i];
       ctxPaint.lineTo(pos.x, pos.y);
     }
-    
+
     if(this.posEnd){
       ctxPaint.lineTo(this.posEnd.x, this.posEnd.y);
     }
@@ -159,15 +159,45 @@ export class TPenShape extends TShape{
 
 } // End of TPenShape
 
+export class TPolygonShape extends TShape{
+  #points;
+  constructor(aX, aY){
+    super(aX, aY)
+    this.#points = [];
+  }
+
+  addPos(aX, aY){
+    const pos = new TPoint(aX, aY);
+    this.#points.push(pos);
+  }
+
+  draw(){
+    ctxPaint.beginPath();
+    ctxPaint.moveTo(this.posStart.x, this.posStart.y);
+
+    for(let i = 0; i < this.#points.length; i++){
+      const pos = this.#points[i];
+      ctxPaint.lineTo(pos.x, pos.y);
+    }
+
+    if(this.posEnd){
+      ctxPaint.lineTo(this.posEnd.x, this.posEnd.y);
+    }else{
+      ctxPaint.lineTo(mousePos.x, mousePos.y);
+    }
+    ctxPaint.stroke();
+  }
+
+} // End of TPolygonShape
+
 
 function updateMousePos(aEvent){
   const rect = cvsPaint.getBoundingClientRect();
   mousePos.x = Math.round(aEvent.clientX - rect.left);
   mousePos.y = Math.round(aEvent.clientY - rect.top);
-  if((shape !== null) && (shape.addPos)){
+  if((shape !== null) && (newShapeType.ShapeType === EShapeType.Pen)){
     shape.addPos(mousePos.x, mousePos.y);
   }
-
 }
 
 function mouseDown(aEvent){
@@ -188,6 +218,10 @@ function mouseDown(aEvent){
         break;
       case EShapeType.Pen:
         shape = new TPenShape(mousePos.x, mousePos.y);
+        break;
+      case EShapeType.Polygon:
+        shape = new TPolygonShape(mousePos.x, mousePos.y);
+        break;
     }
   }
 }
@@ -199,9 +233,11 @@ function mouseMove(aEvent){
 function mouseUp(aEvent){
   updateMousePos(aEvent);
   if(shape){
+    if(newShapeType.ShapeType !== EShapeType.Polygon){
     shape.setEndPos(mousePos.x, mousePos.y);
     shapes.push(shape);
     shape = null;
+  }
   }
 }
 
