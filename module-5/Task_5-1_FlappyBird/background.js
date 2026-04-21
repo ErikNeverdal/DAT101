@@ -27,6 +27,15 @@ export class TBackground{
       this.#spriteGround.x--;
     }
   }
+
+  setDayNight(isDay) {
+    if(isDay == true) {
+      this.#spriteBackground.index = 0;
+
+    } else {
+      this.#spriteBackground.index = 1;
+    } 
+  }
 }
 
 

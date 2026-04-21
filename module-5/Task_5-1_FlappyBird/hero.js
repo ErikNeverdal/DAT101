@@ -20,7 +20,6 @@ export class THero extends TSprite {
     this.animationSpeed = 20;
     this.#gravity = 9.81 / 100;
     this.#speed = 0;
-    this.debug = false;
     this.#wave = new TSineWave(1, 1);
     this.y += this.#wave.value;
     this.#sfFood = null;
@@ -38,27 +37,41 @@ export class THero extends TSprite {
   }
 
   animate() {
-    const hasGravity = EGameStatus.state === EGameStatus.gaming || EGameStatus.state === EGameStatus.heroIsDead;
+  const hasGravity =
+    EGameStatus.state === EGameStatus.gaming ||
+    EGameStatus.state === EGameStatus.heroIsDead;
 
-    if (hasGravity) {
-      if (this.y < 400 - this.height) {
-        this.#speed += this.#gravity; // increase speed due to gravity
-        this.y += this.#speed; // update position based on speed
-        if (this.rotation < 90) {
-          // limit max rotation
-          this.rotation = this.#speed * 25; // tilt down based on speed
-        }
-      } else {
-        EGameStatus.state = EGameStatus.gameOver;
-        menu.stopSound();
-        this.animationSpeed = 0;
-        this.#sfGameOver = new TSoundFile(fnGameOver);
-        this.#sfGameOver.play();
+  if (hasGravity) {
+
+    if (this.y < 400 - this.height) {
+
+      this.#speed += this.#gravity;
+      this.y += this.#speed;
+
+      if (this.rotation < 90) {
+        this.rotation = this.#speed * 25;
       }
-    } else if (EGameStatus.state === EGameStatus.idle) {
-      this.y += this.#wave.value;
+
+    } else {
+
+      EGameStatus.state = EGameStatus.heroIsDead;
+
+      menu.stopSound();
+
+      this.animationSpeed = 0;
+
+      this.#sfGameOver = new TSoundFile(fnGameOver);
+      this.#sfGameOver.play();
+
+      menu.showGameOver();
     }
-  } // End of animate
+
+  } else if (EGameStatus.state === EGameStatus.idle) {
+
+    this.y += this.#wave.value;
+
+  }
+} // End of animate
 
   dead(){
     this.#sfHeroIsDead = new TSoundFile(fnHeroIsDead);
@@ -69,4 +82,16 @@ export class THero extends TSprite {
     this.#speed = -3.5;
     this.rotation = 0;
   }
+
+  restart() {
+  this.x = 100;
+  this.y = 200;
+
+  this.#speed = 0;    
+  this.rotation = 0;
+
+  this.hidden = false;
+  this.animationSpeed = 20;
 }
+}
+  

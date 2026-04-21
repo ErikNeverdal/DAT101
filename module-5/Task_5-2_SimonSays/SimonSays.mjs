@@ -2,7 +2,8 @@
 //--------------- Objects and Variables ----------------------------------//
 import { TSpriteCanvas } from "libSprite";
 import { TGameBoard } from "./gameBoard.js"
-import { addRandomButton } from "./sequence.js";
+import { addRandomButton, resetSequence } from "./sequence.js";
+
 
 // prettier-ignore
 export const SpriteInfoList = {
@@ -19,15 +20,31 @@ const cvs = document.getElementById("cvs");
 const spcvs = new TSpriteCanvas(cvs);
 const gameBoard = new TGameBoard(spcvs, SpriteInfoList);
 
-export const EGameStatusType = { Idle: 0 };
+export const EGameStatusType = { Idle: 0, Computer: 1, Gamer: 2, GameOver: 3, state: 0};
 
 export const gameProps = {
 };
 
 //--------------- Functions ----------------------------------------------//
-function spawnColorButton() {
-  const colorButtons = gameBoard.colorButtons
-  addRandomButton()
+
+export function resetGame(){
+  resetSequence()
+  EGameStatusType.state = EGameStatusType.Idle;
+}
+
+export function updateRound(aRound){
+  gameBoard.spRound.value = aRound;
+}
+
+export function gameOver(){
+  EGameStatusType.state = EGameStatusType.GameOver;
+  gameBoard.gameOver();
+}
+
+export function spawnColorButton(){
+  EGameStatusType.state = EGameStatusType.Computer;
+  const colorButtons = gameBoard.colorButtons;
+  addRandomButton(colorButtons);
 }
 
 function loadGame() {

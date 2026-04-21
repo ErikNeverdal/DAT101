@@ -4,7 +4,7 @@ import { hero, EGameStatus, menu } from "./FlappyBird.mjs";
 
 const EasyFlyerGap = 150;
 const HardFlyerGap = 100;
-const MinimumProtrusion = 30;
+const MinimumProtrusion = 50;
 
 
 export class TObstacle{
@@ -62,7 +62,19 @@ export class TObstacle{
       menu.stopSound();
       hero.flap(); // Last flap of death!
       hero.dead();
+      menu.showGameOver();
     }
+  }
+
+  setDayNight(isDay) {
+    if(isDay == true) {
+      this.#spDown.index = 2;
+      this.#spUp.index = 3;
+
+    } else {
+      this.#spUp.index = 1;
+      this.#spDown.index = 0;
+    } 
   }
 
 }// End of class TObstacle

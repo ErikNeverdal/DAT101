@@ -32,7 +32,7 @@ Part 5 (8 points)
 Change part 4 to print “Positive”, “Negative” or “Zero” accordingly. Run the program with different types of values ​​for the variable to check the "if" statement.
 */
 printOut("Task 4 and 5");
-const part4Number = 0;
+const part4Number = -5;
 if (part4Number > 0) {
     printOut("Positive");
 } else if (part4Number < 0) {
