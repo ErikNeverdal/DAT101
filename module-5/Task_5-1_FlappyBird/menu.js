@@ -1,6 +1,6 @@
 "use strict";
 import { TSprite, TSpriteButton, TSpriteNumber} from "libSprite";
-import { startGame, EGameStatus, hero, obstacles, baits } from "./FlappyBird.mjs";
+import { startGame, EGameStatus, hero, obstacles, baits, soundMuted } from "./FlappyBird.mjs";
 import { TSoundFile } from "libSound";
 
 const fnCountDown = "./Media/countDown.mp3";
@@ -79,10 +79,12 @@ export class TMenu {
     this.#spInfoText.hidden = true;
 
     this.#sfRunning = new TSoundFile(fnRunning);
-    this.#sfRunning.play();
+    if(!soundMuted){
+      this.#sfRunning.play();
+    }
 
     startGame();
-  }
+    }
   }
 
   spPlayBtnClick() {
@@ -140,16 +142,27 @@ export class TMenu {
   setSoundMute(aIsMuted) {
 
   if (aIsMuted) {
-    console.log("Is muted:", aIsMuted);
-      console.log("pause");
+
+    if (this.#sfRunning) {
       this.#sfRunning.pause();
+    }
+
+    if (this.#sfCountDown) {
+      this.#sfCountDown.pause();
+    }
+
   } else {
-    if (this.#sfRunning && EGameStatus.state === EGameStatus.gaming) { 
-      console.log("play");
+
+    if (this.#sfCountDown && EGameStatus.state === EGameStatus.countDown) {
+      this.#sfCountDown.play();
+    }
+
+    if (this.#sfRunning && EGameStatus.state === EGameStatus.gaming) {
       this.#sfRunning.play();
     }
+
   }
-  }
+}
 
   showGameOver(){
 
