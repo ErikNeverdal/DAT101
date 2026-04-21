@@ -19,7 +19,6 @@ export class TMenu {
   #sfRunning;
   #spGameScore;
   #spInfoText;
-  #spInfoTextOver;
   constructor(aSpcvs, aSPI){
     this.#spTitle = new TSprite(aSpcvs, aSPI.flappyBird, 200, 100);
     this.#spPlayBtn = new TSpriteButton(aSpcvs, aSPI.buttonPlay, 240, 180);
@@ -52,7 +51,9 @@ export class TMenu {
   }
 
   stopSound(){
+  if(this.#sfRunning){
     this.#sfRunning.stop();
+    }
   }
 
  draw(){
