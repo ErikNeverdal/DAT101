@@ -176,15 +176,15 @@ export class TMenu {
   this.#spHighScore.value = this.#highScores[0];
   this.#spHighScore.visible = true;
 
-if(score >= 7){
+if(score >= 20){
     this.#spMedal.index = 2; // gull
     this.#spMedal.hidden = false;
 }
-else if(score >= 4){
+else if(score >= 10){
     this.#spMedal.index = 1; // sølv
     this.#spMedal.hidden = false;
 }
-else if(score >= 2){
+else if(score >= 6){
     this.#spMedal.index = 3; // bronse
     this.#spMedal.hidden = false;
 }
